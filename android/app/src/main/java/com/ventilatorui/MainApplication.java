@@ -1,4 +1,4 @@
-package com.daviddang91.reactnativestarter;
+package com.ventilatorui;
 
 import android.app.Application;
 
