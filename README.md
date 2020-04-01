@@ -1,13 +1,18 @@
-# React Native Redux Starter Kit
+# Open Source Ventilator UI
 
-A starter boilerplate for a mobile app using React Native and Redux.
+An open source cross-platform ventilator UI using React Native and Redux.
 
-[![Dependency Status](https://david-dm.org/daviddang91/react-native-redux-starter-kit.svg?style=flat)](https://david-dm.org/daviddang91/react-native-redux-starter-kit)
-[![devDependency Status](https://david-dm.org/daviddang91/react-native-redux-starter-kit.svg?style=flat)](https://david-dm.org/daviddang91/react-native-redux-starter-kit#info=devDependencies)
+Boilerplate taken from [daviddang91/react-native-redux-starter-kit](https://github.com/daviddang91/react-native-redux-starter-kit)
 
-## Demo (Account: demo@gmail.com / 123456)
+UI is based on a paper by [Tovar et al.](https://www.researchgate.net/publication/21347684_The_design_of_a_user_interface_for_a_ventilator-management_advisor)
 
-![demo](./images/introduce.gif)
+## Motivation
+
+With ventilators in short supply amid the COVID-19 pandemic, motivated engineers have been thinking of [alternate approaches](https://ideas.4brad.com/creating-plan-reprogram-smart-cpap-machines-become-emergency-ventilators?fbclid=IwAR32C88yPHcioXnKK3fedvi-0STfUxVVvvDmxtC0DN_pLx10hQMq96Weolc) to quickly increase supply. This project aims to make available a smart phone user interface for controlling an ad-hoc or low-cost ventilator system. I imagine that the UI will interact with the ventilator through TLS and websockets, but the code is intended to be protocol agnostic - you should be able to write an interface for the communication protocol of your choice and swap out the TLS one.
+
+## Caveats
+
+I have never used a ventilator and my knowledge of ventilators begins and ends with this hour-long [Med-cram course](https://www.medcram.com/courses/COVID19-ventilator-mechanical-ventilation?fbclid=IwAR1pwLeSyTTVwNo6_-d1xhMUXPavGMFaVvjm6UAuMBiM2KJm_HhCdow5p9E). I will do the best I can to make a useful product, but I am very new to this area. Please, if you happen upon this project, fork it, submit pull requests, message me - I want this to be of some use and I can't do that alone.
 
 ## Requirements
 - [Node](https://nodejs.org) `6.x` or newer
@@ -38,15 +43,14 @@ See [Getting Started](https://facebook.github.io/react-native/docs/getting-start
 
 ## Get Started
 
-
 #### 1. Installation
 
 On the command prompt run the following commands
 
 ```sh
-$ git clone git@github.com:daviddang91/react-native-redux-starter-kit.git
+$ git clone git@github.com:adhurjaty/ventilator-ui.git
 
-$ cd react-native-redux-starter-kit/
+$ cd ventilator-ui/
 
 $ npm install
 ```
@@ -78,67 +82,21 @@ $ react-native run-ios
 $ react-native run-android
 ```
 
-## Setup ES6+Babel+JSX Linting with Atom/Nuclide
+## Project Status
 
-This sets up Atom to properly lint ES6+Babel+JSX using Airbnb's .eslintrc as a starting point.
+### Code
 
-## Steps
+This is the very beginning of the project. Pushed only the boilerplate code. 
 
-1. Download [Atom](https://atom.io/) and get these two packages: [Linter](https://atom.io/packages/linter) and [Linter-ESLint](https://atom.io/packages/linter-eslint)
-2. Run `npm i -D eslint eslint-config-airbnb babel-eslint eslint-plugin-babel eslint-plugin-react eslint-plugin-react-native eslint-plugin-import eslint-plugin-jsx-a11y` from your project root.
-3. Add `"extends": "airbnb"` to your .eslintrc and `"plugins": [ "babel", "react", "react-native", "jsx-a11y" ]`
-4. Run `apm install linter-eslint` this also installs `linter` which clashes with nuclide diagnostics
-5. Run `apm disable linter` to stop the linter clashing with nuclide
+### UI Mockups
 
-See [Airbnb's Javascript styleguide](https://github.com/airbnb/javascript) and
-the [ESlint config docs](http://eslint.org/docs/user-guide/configuring#extending-configuration-files)
-for more information.
+(Ignore the color scheme)
 
-## Data Persistence
-- [redux-persist](https://github.com/rt2zz/redux-persist) `5.10.0` persist and rehydrate a redux store
+![Monitors](screenshots/planning/ui_mockup_monitors.png)
+![Controls](screenshots/planning/ui_mockup_controls.png)
+![Menu](screenshots/planning/ui_mockup_menu.png)
+![Settings](screenshots/planning/ui_mockup_settings.png)
 
+### Model Structure
 
-## Debugger
-- [React Native Debugger](https://github.com/jhen0409/react-native-debugger) : The standalone app based on official debugger of React Native, and includes React Inspector / Redux DevTools
-- [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) `2.13.5`
-
-## Rename Project
-Rename react-native app with just one command
-
-![react-native-rename](https://cloud.githubusercontent.com/assets/5106887/24444940/cbcb0a58-149a-11e7-9714-2c7bf5254b0d.gif)
-
-> This package assumes that you created your react-native project using `react-native init`.
-
-#### Installation
-```
-yarn global add react-native-rename
-or
-npm install react-native-rename -g
-```
-
-Switch to new branch first
->better to have back-up
-
-```
-git checkout -b rename-app
-```
-
-#### Usage
-```
-react-native-rename <newName>
-```
-
-> With custom Bundle Identifier (Android)
-```
-react-native-rename <newName> -b <bundleIdentifier>
-```
-
-#### Example
-```
-react-native-rename "Travel App"
-```
-> With custom Bundle Identifier
-```
-react-native-rename "Travel App" -b com.junedomingo.travelapp
-```
-
+![Model Structure](screenshots/planning/model_structure.png)
