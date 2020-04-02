@@ -104,7 +104,13 @@ android {
         versionCode 1
         versionName "1.0"
         ndk {
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters "armeabi", "armeabi-v7a", "x86", "mips"
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+
+            }
         }
     }
     signingConfigs {
