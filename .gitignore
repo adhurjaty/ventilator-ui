@@ -57,3 +57,8 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+*.project
+*.classpath
+*.build
+*.prefs
