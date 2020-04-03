@@ -1,46 +1,36 @@
 {
   "name": "VentilatorUI",
-  "version": "2.7.0",
+  "version": "0.0.1",
   "private": true,
-  "devDependencies": {
-    "@babel/runtime": "7.1.5",
-    "@babel/plugin-external-helpers": "7.0.0",
-    "babel-eslint": "7.2.3",
-    "eslint": "4.4.1",
-    "eslint-plugin-flowtype": "2.35.0",
-    "eslint-plugin-import": "2.7.0",
-    "eslint-plugin-jsx-a11y": "6.0.2",
-    "eslint-plugin-prettier": "2.1.2",
-    "eslint-plugin-react": "7.1.0",
-    "eslint-plugin-react-native": "3.0.1",
-    "husky": "0.14.3",
-    "jest": "23.3.0",
-    "metro-react-native-babel-preset": "^0.49.2",
-    "prettier": "1.5.3",
-    "react-test-renderer": "16.4.1",
-    "schedule": "0.4.0"
-  },
   "scripts": {
-    "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
-  },
-  "jest": {
-    "preset": "react-native"
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "@babel/plugin-external-helpers": "^7.8.3",
     "axios": "^0.19.2",
-    "color": "1.0.3",
-    "humps": "2.0.1",
+    "babel-eslint": "^10.1.0",
+    "color": "^3.1.2",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "humps": "^2.0.1",
+    "husky": "^4.2.3",
     "lodash": "^4.17.15",
-    "moment": "2.22.2",
+    "moment": "^2.24.0",
     "native-base": "^2.13.12",
-    "prop-types": "15.6.2",
-    "react": "16.5.0",
-    "react-native": "^0.62.0",
-    "react-native-loading-spinner-overlay": "0.5.2",
-    "react-native-modalbox": "1.6.0",
+    "prettier": "^2.0.2",
+    "prop-types": "^15.7.2",
+    "react": "16.11.0",
+    "react-native": "0.62.0",
+    "react-native-loading-spinner-overlay": "^1.1.0",
+    "react-native-modalbox": "^2.0.0",
     "react-native-splash-screen": "3.1.1",
     "react-navigation": "2.11.2",
     "react-redux": "5.0.7",
@@ -50,6 +40,20 @@
     "redux-form": "7.4.2",
     "redux-modal": "2.0.3",
     "redux-persist": "5.10.0",
-    "redux-thunk": "2.3.0"
+    "redux-thunk": "2.3.0",
+    "schedule": "^0.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/runtime": "^7.6.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.5.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.58.0",
+    "react-test-renderer": "^16.11.0"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }
