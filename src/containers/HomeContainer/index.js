@@ -1,11 +1,8 @@
-import React, { Component } from "react";
-import Home from "../../components/Home";
+import React, {Component} from 'react';
+import Home from '../../components/Home';
 
 export default class HomeContainer extends Component {
   render() {
-    return (
-      <Home navigation={this.props.navigation}/>
-    );
+    return <Home navigation={this.props.navigation} />;
   }
 }
-
