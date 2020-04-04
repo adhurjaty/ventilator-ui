@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text} from 'native-base';
+import {Content} from 'native-base';
 import MainTemplate from '../mainTemplate';
+import GraphReading from '../Graphs/graphReading';
 
 const TestBed = (props) => (
     <MainTemplate navigation={props.navigation} heading="Test Bed">
-        <Text>foo</Text>
+        <Content>
+            <GraphReading label="02 Sat (Oxgm)" value={99.0} />
+        </Content>
     </MainTemplate>
 );
 
