@@ -79,6 +79,10 @@ $ react-native run-ios
 *	Run the following command in your terminal.
 
 ```sh
+$ react-native start
+```
+In another terminal, run
+```sh
 $ react-native run-android
 ```
 
@@ -86,7 +90,7 @@ $ react-native run-android
 
 ### Code
 
-This is the very beginning of the project. Pushed only the boilerplate code. 
+This is the very beginning of the project. Pushed only the boilerplate code. I am currently only running on an Android emulator, so iOS may not work as of now
 
 ### UI Mockups
 
