@@ -6,6 +6,7 @@ import GraphReadingRow from '../Graphs/graphReadingRow';
 import {LineChart, Grid} from 'react-native-svg-charts';
 import styled from 'styled-components';
 import LineGraph from '../Graphs/lineGraph';
+import GraphList from '../Graphs/graphList';
 
 const data = [
     0,
@@ -26,6 +27,33 @@ const data = [
     5,
 ];
 
+const allGraphs = [
+    {
+        name: 'O2 Sat (oxgm.)',
+        data: data,
+    },
+    {
+        name: 'PaO2',
+        data: data,
+    },
+    {
+        name: 'PaCO2',
+        data: data,
+    },
+    {
+        name: 'pH',
+        data: data,
+    },
+    {
+        name: 'HCO3',
+        data: data,
+    },
+    {
+        name: 'Cardiac Output',
+        data: data,
+    },
+];
+
 const RowContainer = styled.View`
     display: flex;
     flex-direction: row;
@@ -35,21 +63,7 @@ const RowContainer = styled.View`
 
 const TestBed = (props) => (
     <MainTemplate navigation={props.navigation} heading="Test Bed">
-        <GraphReadingRow data={data} label="02 Sat (Oxgm.)" />
-        {/* <LineGraph data={data} /> */}
-        {/* <BarChartExample /> */}
-        {/* <GraphReadingRow label="02 Sat (Oxgm)" data={data} /> */}
-        {/* <RowContainer> */}
-            {/* <LineChart
-                style={{
-                    height: 200,
-                }}
-                data={data}
-                svg={{stroke: 'rgb(134, 65, 244)'}}
-                contentInset={{top: 20, bottom: 20}}>
-                <Grid />
-            </LineChart> */}
-        {/* </RowContainer> */}
+        <GraphList graphs={allGraphs} />
     </MainTemplate>
 );
 

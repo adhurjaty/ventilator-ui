@@ -7,6 +7,7 @@ const GraphReadingContainer = styled.View`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 `;
 
 const ReadingLabel = styled.View`
@@ -14,7 +15,8 @@ const ReadingLabel = styled.View`
     border-radius: 5px;
     padding: 5px;
     padding-bottom: 20px;
-    z-index: 1;
+    width: 100%;
+    align-items: center;
 `;
 
 const ReadingValue = styled.View`
@@ -24,6 +26,7 @@ const ReadingValue = styled.View`
     border-radius: 10px;
     padding: 5px 25px 5px 25px;
     z-index: 2;
+    text-align: center;
 `;
 
 const GraphReading = ({label, value}) => (

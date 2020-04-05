@@ -9,12 +9,25 @@ const RowContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 10px;
+`;
+
+const GraphContainer = styled.View`
+    width: 65%;
+`;
+
+const ValueContainer = styled.View`
+    width: 35%;
 `;
 
 const GraphReadingRow = ({data, label}) => (
     <RowContainer>
-        <LineGraph data={data} />
-        <GraphReading label={label} value={lastDataValue(data)} />
+        <GraphContainer>
+            <LineGraph data={data} />
+        </GraphContainer>
+        <ValueContainer>
+            <GraphReading label={label} value={lastDataValue(data)} />
+        </ValueContainer>
     </RowContainer>
 );
 
