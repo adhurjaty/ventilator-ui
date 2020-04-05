@@ -55,6 +55,11 @@ $ cd ventilator-ui/
 $ npm install
 ```
 
+Link react-native-svg
+```sh
+$ react-native link react-native-svg
+```
+
 #### 2. Simulate for iOS
 
 **Method One**
