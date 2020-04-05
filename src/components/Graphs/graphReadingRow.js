@@ -12,7 +12,7 @@ const RowContainer = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding-bottom: 5px;
 `;
 
 const GraphContainer = styled.View`
@@ -28,7 +28,7 @@ const ValueContainer = styled.View`
 const GraphReadingRow = ({data, label}) => (
     <RowContainer>
         <GraphContainer>
-            <LineGraph data={data} width={screenWidth * 0.65} height={90} />
+            <LineGraph data={data} width={screenWidth * 0.65} height={80} />
         </GraphContainer>
         <ValueContainer>
             <GraphReading label={label} value={lastDataValue(data)} />

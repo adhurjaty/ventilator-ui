@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {Svg, Line, Path, Text} from 'react-native-svg';
 import * as d3 from 'd3';
+import {getDataTimeDomain, getDataValueRange} from './graphUtils';
 
 const verticalPadding = 10;
 const leftPadding = 5;
@@ -39,7 +40,7 @@ const LineGraph = ({data, width, height}) => {
                     d={line}
                     fill="transparent"
                     stroke="rgb(134, 65, 244)"
-                    strokWidth={5}
+                    strokeWidth={1}
                 />
                 {createBorder(width, height)}
                 {createYAxisLabels(range, scaleY, labelStart)}
@@ -47,24 +48,6 @@ const LineGraph = ({data, width, height}) => {
         </ChartContainer>
     );
 };
-
-function getDataTimeDomain(data) {
-    if (!data || data.length === 0) {
-        return [new Date(), new Date()];
-    }
-    if (data.length === 1) {
-        return [data[0].time, data[0].time];
-    }
-    return [data[0].time, data[data.length - 1].time];
-}
-
-function getDataValueRange(data) {
-    if (!data || data.length === 0) {
-        return [0, 0];
-    }
-    let values = data.map((x) => x.value);
-    return [Math.min(...values), Math.max(...values)];
-}
 
 // function getPaddedRange(range) {
 //     let rangeSize = range[1] - range[0];

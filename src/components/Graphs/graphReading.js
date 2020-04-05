@@ -13,15 +13,14 @@ const GraphReadingContainer = styled.View`
 const ReadingLabel = styled.View`
     border: 1px solid black;
     border-radius: 5px;
-    padding: 5px;
-    padding-bottom: 20px;
+    padding: 2px 5px 17px 5px;
     width: 100%;
     align-items: center;
 `;
 
 const ReadingValue = styled.View`
     position: relative;
-    top: -12%;
+    top: -20%;
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px 25px 5px 25px;
