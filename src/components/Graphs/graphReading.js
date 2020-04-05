@@ -19,7 +19,7 @@ const ReadingLabel = styled.View`
 
 const ReadingValue = styled.View`
     position: relative;
-    top: -17%;
+    top: -12%;
     border: 1px solid black;
     border-radius: 10px;
     padding: 5px 25px 5px 25px;
