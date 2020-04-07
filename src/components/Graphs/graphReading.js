@@ -2,6 +2,7 @@ import React from 'react';
 import {Text} from 'native-base';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {displayFloat} from '../../utils/helpers';
 
 const GraphReadingContainer = styled.View`
     display: flex;
@@ -34,7 +35,7 @@ const GraphReading = ({label, value}) => (
             <Text>{label}</Text>
         </ReadingLabel>
         <ReadingValue style={{backgroundColor: 'white'}}>
-            <Text>{formatValue(value)}</Text>
+            <Text>{displayFloat(value)}</Text>
         </ReadingValue>
     </GraphReadingContainer>
 );
@@ -43,9 +44,5 @@ GraphReading.PropTypes = {
     label: PropTypes.string,
     value: PropTypes.number,
 };
-
-function formatValue(val) {
-    return val.toFixed(1);
-}
 
 export default GraphReading;

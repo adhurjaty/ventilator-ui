@@ -1,5 +1,4 @@
 import React, {PureComponent} from 'react';
-import {Text, Separator} from 'native-base';
 import {
     Collapse,
     CollapseHeader,

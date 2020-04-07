@@ -5,3 +5,7 @@ export function maxDate(dates) {
 export function minDate(dates) {
     return new Date(Math.min(...dates));
 }
+
+export function displayFloat(val) {
+    return val.toFixed(1);
+}

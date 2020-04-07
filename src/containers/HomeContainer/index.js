@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {show} from 'redux-modal';
 import Home from '../../components/Home';
 
 const data = [
@@ -47,8 +50,22 @@ const allGraphs = [
     },
 ];
 
-export default class HomeContainer extends Component {
+class HomeContainer extends Component {
+    handleOpen(modal) {
+        this.props.show(modal, {message: `This is a ${modal} modal`});
+    }
+
     render() {
-        return <Home navigation={this.props.navigation} graphs={allGraphs} />;
+        return (
+            <Home
+                handleOpen={(modal) => this.handleOpen(modal)}
+                navigation={this.props.navigation}
+                graphs={allGraphs}
+            />
+        );
     }
 }
+
+export default connect(null, (dispatch) =>
+    bindActionCreators({show}, dispatch),
+)(HomeContainer);
