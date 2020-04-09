@@ -4,26 +4,28 @@ import styled from 'styled-components';
 import CenterModal from '../Controls/centerModal';
 import {displayFloat} from '../../utils/helpers';
 
+const buttonSize = 150;
+
 const MainContainer = styled.TouchableOpacity`
     display: flex;
     flex-direction: column;
     align-self: center;
     align-items: center;
-    width: 100px;
-    height: 100px;
+    width: ${buttonSize}px;
+    height: ${buttonSize}px;
     border: 1px solid black;
     border-radius: 5px;
-    padding-top: 25px;
+    padding-top: ${buttonSize / 2 - 35}px;
 `;
 
 const ValueText = styled.Text`
-    font-size: 24px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
 `;
 
 const LabelText = styled.Text`
-    font-size: 16px;
+    font-size: 20px;
     padding-top: 10px;
 `;
 

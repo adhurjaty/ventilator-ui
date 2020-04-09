@@ -5,7 +5,7 @@ import {connectModal} from 'redux-modal';
 import styled from 'styled-components';
 import {displayFloat} from '../../utils/helpers';
 
-const modalHeight = 300;
+const modalHeight = 400;
 const modalWidth = 300;
 
 const ModalContainer = styled.View`
@@ -60,14 +60,23 @@ const ValueInput = styled.TextInput`
 
 const LabelText = styled.Text`
     position: relative;
-    top: 50;
+    top: 70;
     font-size: 24px;
+`;
+
+const ErrorText = styled.Text`
+    position: relative;
+    top: 90;
+    font-size: 16px;
+    color: red;
+    padding: 0px 20px 0px 20px;
+    text-align: center;
 `;
 
 const SubmitButton = styled(Button)`
     position: relative;
     align-self: center;
-    top: 90;
+    top: 130;
 `;
 
 const HeadingText = styled.Text`
@@ -76,8 +85,25 @@ const HeadingText = styled.Text`
     font-weight: bold;
 `;
 
-const CenterModal = ({show, handleHide, heading, initVal, label}) => {
+const CenterModal = ({
+    show,
+    handleHide,
+    heading,
+    initVal,
+    label,
+    validateAndSubmit,
+}) => {
     const [value, valueChanged] = useState(displayFloat(initVal));
+    const [error, errorChanged] = useState('');
+
+    const onPress = () => {
+        var errMessage = validateAndSubmit();
+        if (errMessage) {
+            errorChanged(errMessage);
+        } else {
+            handleHide();
+        }
+    };
 
     return (
         <ModalContainer>
@@ -99,6 +125,7 @@ const CenterModal = ({show, handleHide, heading, initVal, label}) => {
                         onChangeText={valueChanged}
                     />
                     <LabelText>{label}</LabelText>
+                    <ErrorText>{error}</ErrorText>
                     <SubmitButton onPress={onPress}>
                         <Text>Submit</Text>
                     </SubmitButton>
@@ -107,10 +134,6 @@ const CenterModal = ({show, handleHide, heading, initVal, label}) => {
         </ModalContainer>
     );
 };
-
-function onPress() {
-    console.log('pressed');
-}
 
 export default connectModal({
     name: 'centerModal',
