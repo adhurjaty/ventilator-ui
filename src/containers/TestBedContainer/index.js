@@ -6,7 +6,6 @@ import TestBed from '../../components/TestBed';
 
 class TestBedContainer extends Component {
     handleOpen(modal) {
-        console.log('here');
         this.props.show(modal, {message: `This is a ${modal} modal`});
     }
 

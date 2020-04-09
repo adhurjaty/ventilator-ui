@@ -1,7 +1,6 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CenterModal from '../Controls/centerModal';
 import {displayFloat} from '../../utils/helpers';
 
 const buttonSize = 150;
@@ -29,9 +28,8 @@ const LabelText = styled.Text`
     padding-top: 10px;
 `;
 
-const ControlButton = ({heading, value, label, onPress}) => (
+const ControlButton = ({value, label, onPress}) => (
     <Fragment>
-        <CenterModal initVal={value} label={label} heading={heading} />
         <MainContainer onPress={onPress}>
             <ValueText>{displayFloat(value)}</ValueText>
             <LabelText>{label}</LabelText>

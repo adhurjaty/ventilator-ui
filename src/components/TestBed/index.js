@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import LineGraph from '../Graphs/lineGraph';
 import GraphList from '../Graphs/graphList';
 import ControlButton from '../Controls/controlButton';
+import CenterModal from '../Controls/centerModal';
 import {FlatList} from 'react-native';
 
 const ButtonListContainer = styled(FlatList)`
@@ -30,35 +31,53 @@ const createButton = (item) => (
 );
 
 const TestBed = ({navigation, handleOpen}) => {
+    const [modal, changeModal] = useState(null);
+
+    const handlePress = (newModal) => () => {
+        changeModal(newModal);
+        handleOpen('centerModal');
+    };
+
+    const dataItem = ({value, label, heading}) => {
+        return {
+            value: value,
+            label: label,
+            heading: heading,
+            onPress: handlePress(
+                <CenterModal initVal={value} label={label} heading={heading} />,
+            ),
+        };
+    };
+
     const data = [
-        {
+        dataItem({
             value: 5.0,
             label: 'cmH2O',
             heading: 'Pressure',
+        }),
+        dataItem({
+            value: 8,
+            label: 'Rate',
+            heading: 'Rate / I:E Ratio',
             onPress: () => handleOpen('centerModal'),
-        },
-        {
-            value: 5.0,
-            label: 'cmH2O',
-            heading: 'Pressure',
+        }),
+        dataItem({
+            value: 50,
+            label: 'O2 %',
+            heading: 'FI02',
             onPress: () => handleOpen('centerModal'),
-        },
-        {
-            value: 5.0,
-            label: 'cmH2O',
-            heading: 'Pressure',
+        }),
+        dataItem({
+            value: 1.1,
+            label: 'Liters',
+            heading: 'TV / MY',
             onPress: () => handleOpen('centerModal'),
-        },
-        {
-            value: 5.0,
-            label: 'cmH2O',
-            heading: 'Pressure',
-            onPress: () => handleOpen('centerModal'),
-        },
+        }),
     ];
 
     return (
         <MainTemplate navigation={navigation} heading="Test Bed">
+            {modal}
             <ButtonListContainer
                 data={data}
                 renderItem={({item}) => createButton(item)}
