@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Modal from 'react-native-modalbox';
-import {Icon, Button, Text} from 'native-base';
+import {Icon, Button, Text, Picker} from 'native-base';
 import {connectModal} from 'redux-modal';
 import styled from 'styled-components';
 import {displayFloat} from '../../utils/helpers';
@@ -51,32 +51,37 @@ const ButtonIcon = styled(Icon)`
     color: #000000;
 `;
 
-const ValueInput = styled.TextInput`
+const FormContainer = styled.View`
     position: absolute;
-    top: ${modalHeight / 2 - 50};
+    bottom: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+`;
+
+const ValueInput = styled.TextInput`
     font-size: 30;
     font-weight: bold;
+    margin-bottom: 15px;
 `;
 
 const LabelText = styled.Text`
-    position: relative;
-    top: 70;
     font-size: 24px;
+    margin-bottom: 10px;
 `;
 
 const ErrorText = styled.Text`
-    position: relative;
-    top: 90;
+    height: 40px;
     font-size: 16px;
     color: red;
     padding: 0px 20px 0px 20px;
     text-align: center;
+    margin-bottom: 30px;
 `;
 
 const SubmitButton = styled(Button)`
-    position: relative;
     align-self: center;
-    top: 130;
 `;
 
 const HeadingText = styled.Text`
@@ -85,16 +90,26 @@ const HeadingText = styled.Text`
     font-weight: bold;
 `;
 
-const CenterModal = ({
+const EditValueModal = ({
     show,
     handleHide,
     heading,
-    initVal,
-    label,
+    valueOptions,
+    optionIdx,
     validateAndSubmit,
 }) => {
-    const [value, valueChanged] = useState(displayFloat(initVal));
+    let i = optionIdx || 0;
+    let selectedOption = valueOptions[i];
+
+    const [value, valueChanged] = useState(displayFloat(selectedOption.value));
+    const [label, labelChanged] = useState(selectedOption.label);
     const [error, errorChanged] = useState('');
+
+    const optionSelected = (newId) => {
+        let option = valueOptions.find((x) => x.id === newId);
+        labelChanged(option.label);
+        valueChanged(option.value);
+    };
 
     const onPress = () => {
         var errMessage = validateAndSubmit();
@@ -119,16 +134,35 @@ const CenterModal = ({
                         </CloseButton>
                         <HeadingText>{heading}</HeadingText>
                     </ModalHeader>
-                    <ValueInput
-                        value={value}
-                        keyboardType="numeric"
-                        onChangeText={valueChanged}
-                    />
-                    <LabelText>{label}</LabelText>
-                    <ErrorText>{error}</ErrorText>
-                    <SubmitButton onPress={onPress}>
-                        <Text>Submit</Text>
-                    </SubmitButton>
+                    <FormContainer>
+                        <ValueInput
+                            value={value}
+                            keyboardType="numeric"
+                            onChangeText={valueChanged}
+                        />
+                        {(() => {
+                            if (valueOptions.length > 1) {
+                                return (
+                                    <Picker
+                                        onValueChange={optionSelected}
+                                        selectedValue={0}>
+                                        {valueOptions.map((vo) => (
+                                            <Picker.Item
+                                                key={`${vo.label}-${vo.id}`}
+                                                label={vo.label}
+                                                value={vo.id}
+                                            />
+                                        ))}
+                                    </Picker>
+                                );
+                            }
+                            return <LabelText>{label}</LabelText>;
+                        })()}
+                        <ErrorText>{error}</ErrorText>
+                        <SubmitButton onPress={onPress}>
+                            <Text>Submit</Text>
+                        </SubmitButton>
+                    </FormContainer>
                 </ContentContainer>
             </ModalPopup>
         </ModalContainer>
@@ -138,4 +172,4 @@ const CenterModal = ({
 export default connectModal({
     name: 'centerModal',
     destroyOnHide: true,
-})(CenterModal);
+})(EditValueModal);

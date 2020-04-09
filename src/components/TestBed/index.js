@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import LineGraph from '../Graphs/lineGraph';
 import GraphList from '../Graphs/graphList';
 import ControlButton from '../Controls/controlButton';
-import CenterModal from '../Controls/centerModal';
+import EditValueModal from '../Controls/editValueModal';
 import {FlatList} from 'react-native';
 
 const ButtonListContainer = styled(FlatList)`
@@ -39,12 +39,24 @@ const TestBed = ({navigation, handleOpen}) => {
     };
 
     const dataItem = ({value, label, heading}) => {
+        let options = [
+            {
+                value: value,
+                label: label,
+                id: 0,
+            },
+            {
+                value: 4,
+                label: 'other',
+                id: 1,
+            },
+        ];
         return {
             value: value,
             label: label,
             heading: heading,
             onPress: handlePress(
-                <CenterModal initVal={value} label={label} heading={heading} />,
+                <EditValueModal initVal={value} valueOptions={options} />,
             ),
         };
     };
