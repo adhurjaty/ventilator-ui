@@ -25,10 +25,15 @@ const ValueContainer = styled.View`
     top: 10px;
 `;
 
-const GraphReadingRow = ({data, label}) => (
+const GraphReadingRow = ({data, label, color}) => (
     <RowContainer>
         <GraphContainer>
-            <LineGraph data={data} width={screenWidth * 0.65} height={80} />
+            <LineGraph
+                data={data}
+                width={screenWidth * 0.65}
+                height={80}
+                color={color}
+            />
         </GraphContainer>
         <ValueContainer>
             <GraphReading label={label} value={lastDataValue(data)} />

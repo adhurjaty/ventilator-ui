@@ -14,7 +14,7 @@ const ChartContainer = styled.View`
     flex-direction: row;
 `;
 
-const LineGraph = ({data, width, height}) => {
+const LineGraph = ({data, width, height, color}) => {
     let domain = getDataTimeDomain(data);
     let range = getDataValueRange(data);
 
@@ -39,8 +39,8 @@ const LineGraph = ({data, width, height}) => {
                 <Path
                     d={line}
                     fill="transparent"
-                    stroke="rgb(134, 65, 244)"
-                    strokeWidth={1}
+                    stroke={color}
+                    strokeWidth={1.5}
                 />
                 {createBorder(width, height)}
                 {createYAxisLabels(range, scaleY, labelStart)}

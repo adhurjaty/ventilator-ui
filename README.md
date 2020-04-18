@@ -15,6 +15,7 @@ With ventilators in short supply amid the COVID-19 pandemic, motivated engineers
 I have never used a ventilator and my knowledge of ventilators begins and ends with this hour-long [Med-cram course](https://www.medcram.com/courses/COVID19-ventilator-mechanical-ventilation?fbclid=IwAR1pwLeSyTTVwNo6_-d1xhMUXPavGMFaVvjm6UAuMBiM2KJm_HhCdow5p9E). I will do the best I can to make a useful product, but I am very new to this area. Please, if you happen upon this project, fork it, submit pull requests, message me - I want this to be of some use and I can't do that alone.
 
 ## Requirements
+
 - [Node](https://nodejs.org) `6.x` or newer
 - [React Native](http://facebook.github.io/react-native/docs/getting-started.html) for development
 - [Xcode](https://developer.apple.com/xcode/) for iOS development
@@ -26,6 +27,7 @@ I have never used a ventilator and my knowledge of ventilators begins and ends w
 See [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) to install requirement tools.
 
 ## Stack
+
 - [React JS](https://reactjs.org/) is a JavaScript library
 - [React Native](https://facebook.github.io/react-native/) `0.57.0` for building native apps using react
 - [Redux](https://redux.js.org) `4.0.0` a predictable state container for Javascript apps

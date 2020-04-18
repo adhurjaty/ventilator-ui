@@ -4,6 +4,7 @@ import GraphReadingRow from './graphReadingRow';
 import {getDataTimeDomain} from './graphUtils';
 import TimeAxis from './timeAxis';
 import {graphWidth} from './graphValues';
+import {GraphColors} from '../Common/common';
 
 const GraphList = ({graphs}) => {
     if (!graphs || graphs.length === 0) {
@@ -19,6 +20,7 @@ const GraphList = ({graphs}) => {
             key={`${graph.name}-${i}`}
             label={graph.name}
             data={graph.data}
+            color={GraphColors[i]}
         />
     ));
 
