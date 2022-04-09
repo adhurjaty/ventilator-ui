@@ -27,7 +27,7 @@
     "humps": "^2.0.1",
     "husky": "^4.2.3",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "native-base": "^2.13.12",
     "prettier": "^2.0.2",
     "prop-types": "^15.7.2",
